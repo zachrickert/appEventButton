@@ -1,0 +1,10 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes" >
+    <aura:attribute name="academicTermID" type="string" />
+    <aura:attribute name="eventID" type="string" />
+    <aura:attribute name="overrideButtonTitle" type="string" />
+    <aura:attribute name="overrideLink" type="string" />
+    <aura:attribute name="overrideOpenDate" type="string" />
+    <aura:attribute name="overrideCloseDate" type="string" />
+
+    <lightning:button label="{!v.overrideButtonTitle}" variant="brand" />
+</aura:component>	
