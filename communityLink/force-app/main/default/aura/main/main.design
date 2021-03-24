@@ -1,8 +1,0 @@
-<design:component >
-    <design:attribute name="academicTermID" label="Academic Term ID" />
-    <design:attribute name="eventID" label="Event ID" />
-    <design:attribute name="overrideButtonTitle" label="Override standard button title" />
-    <design:attribute name="overrideLink" label="Override link" />
-    <design:attribute name="overrideOpenDate" label="Override Open Date" />
-    <design:attribute name="overrideCloseDate" label="Override Close Date" />
-</design:component>

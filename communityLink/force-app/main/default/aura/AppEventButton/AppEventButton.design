@@ -1,0 +1,8 @@
+<design:component >
+    <design:attribute name="academicTermID" label="Academic Term ID" />
+    <design:attribute name="eventID" label="Event ID" />
+    <design:attribute name="overrideButtonTitle" label="Override standard button title"  description="Title for App or Event"/>
+    <design:attribute name="overrideLink" label="Override link"  description="Link where the button goes to."/>
+    <design:attribute name="overrideOpenDate" label="Override Open Date" description="MM/DD/YYYY"/>
+    <design:attribute name="overrideCloseDate" label="Override Close Date" description="MM/DD/YYYY" />
+</design:component>

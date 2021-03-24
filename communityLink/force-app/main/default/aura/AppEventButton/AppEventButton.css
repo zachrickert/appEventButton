@@ -1,0 +1,20 @@
+.THIS {
+}
+
+.THIS.myButton{
+    width: 100%;
+    font-size: x-large;
+    text-align: center;
+    border-radius: 25px;
+
+}
+
+.THIS.openButton{
+    background-color: #B7A57A;
+    color:#3D3283;
+}
+
+.THIS.closedButton{
+    background-color: #D3D3D3;
+    color:#3D3283;
+}

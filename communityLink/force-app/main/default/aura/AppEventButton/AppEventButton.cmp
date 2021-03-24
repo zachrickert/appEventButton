@@ -1,0 +1,23 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="academicTermID" type="string" />
+    <aura:attribute name="eventID" type="string" />
+    <aura:attribute name="overrideButtonTitle" type="string" />
+    <aura:attribute name="overrideLink" type="string" />
+    <aura:attribute name="overrideOpenDate" type="string" />
+    <aura:attribute name="overrideCloseDate" type="string" />
+    <aura:attribute name="buttonTitle" type="string" />
+    <aura:attribute name="link" type="string" default="/"/>
+    <aura:attribute name="openDate" type="date" />
+    <aura:attribute name="closeDate" type="date" />
+    <aura:attribute name="dateText" type="string" />
+    <aura:attribute name="buttonStatus" type="string" />
+    <aura:attribute name="dateFormat" type="string" />
+    <aura:attribute name="buttonClass" type="string" />
+    <aura:attribute name="buttonDisabled" type="string" />
+
+    <lightning:button variant="brand" onclick="{!c.goToLink}" class="{!v.buttonClass}" disabled="{!v.buttonDisabled}">
+        {!v.dateText}<br/>{!v.buttonTitle}
+    </lightning:button>
+    
+</aura:component>	
