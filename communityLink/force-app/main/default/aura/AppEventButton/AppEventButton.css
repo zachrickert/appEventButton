@@ -1,20 +1,36 @@
 .THIS {
+    display: none;
 }
 
 .THIS.myButton{
+    display: inline-flex;
     width: 100%;
     font-size: x-large;
     text-align: center;
-    border-radius: 25px;
-
+    border-radius: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    min-height: 100px;
 }
 
 .THIS.openButton{
     background-color: #B7A57A;
     color:#3D3283;
+    border: 1px solid #3D3283;
+}
+.THIS.openButton:hover{
+    color: #B7A57A;
+    background-color:#3D3283;
+    border: 1px solid #B7A57A;
+}.THIS.openButton:focus{
+    color: #B7A57A;
+    background-color:#3D3283;
+    border: 1px solid #B7A57A;
 }
 
 .THIS.closedButton{
     background-color: #D3D3D3;
     color:#3D3283;
+    cursor: not-allowed;
+    border: 1px solid black;
 }
+

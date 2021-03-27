@@ -5,4 +5,5 @@
     <design:attribute name="overrideLink" label="Override link"  description="Link where the button goes to."/>
     <design:attribute name="overrideOpenDate" label="Override Open Date" description="MM/DD/YYYY"/>
     <design:attribute name="overrideCloseDate" label="Override Close Date" description="MM/DD/YYYY" />
+    <design:attribute name="intendedProgram" label="Intended Program" description="Program to create the Application" />
 </design:component>

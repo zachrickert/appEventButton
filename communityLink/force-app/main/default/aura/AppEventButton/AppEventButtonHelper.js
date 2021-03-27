@@ -32,12 +32,7 @@
             d2.setFullYear(closeYear,closeMonth,closeDay);
             
             component.set("v.closeDate",d2);
-            console.log('Set Overrode Close: '+ overrideCloseDate);
 
-        }else {
-            var tempDate = new Date();
-            tempDate.setDate(tempDate.getDate()+1);
-            component.set("v.closeDate",tempDate);
         }
         
     },
@@ -45,7 +40,11 @@
         let openDate = component.get("v.openDate");
         let closeDate = component.get("v.closeDate");
         var todaysDate = new Date();
-        if (todaysDate < openDate){
+        console.log('open Date: '+ openDate);
+        console.log('close Date: '+ closeDate);
+        if ( isNaN(openDate) || isNaN(closeDate)){
+            component.set("v.buttonStatus","Open");
+        } else if (todaysDate < openDate ){
             component.set("v.buttonStatus","Not Open");       
         } else if (todaysDate <= closeDate){
             component.set("v.buttonStatus","Open");
@@ -56,55 +55,45 @@
     },
     setDateText : function(component) {
         let myStatus = component.get("v.buttonStatus");
+        let closeDate = component.get("v.closeDate");
         var myText;
 
-        if (myStatus == 'Open') {
+        if(isNaN(closeDate)){
+            myText="";
+            component.set("v.renderDateText",false);
+        }else if (myStatus == 'Open') {
             myText = "--Now Open--";
-            //component.set("v.dateText", "--Now Open--" );
+            
         }else if (myStatus == 'Not Open'){
             let formatText = component.get("v.dateFormat");
             myText = "Opening " + formatText;
-            //component.set("v.dateText", "Opening " + formatText );
+            
         }else if (myStatus == 'Closed'){
-            //component.set("v.dateText", "Registration Closed" );
-            myText = "Registration Closed";
+            myText = "Application Period Closed";
         }
         component.set("v.dateText", myText);
     },
     setButtonClass : function(component) {
         let myStatus = component.get("v.buttonStatus");
-        var myText;
+        var buttonClass;
+        var buttonDisabled;
 
         if (myStatus == 'Open') {
-            myText = "openButton";
-            //component.set("v.dateText", "--Now Open--" );
+            buttonClass = "openButton";
+            buttonDisabled = false;
         }else if (myStatus == 'Not Open'){
-            let formatText = component.get("v.dateFormat");
-            myText = "closedButton";
-            //component.set("v.dateText", "Opening " + formatText );
+            buttonClass = "closedButton";
+            buttonDisabled = true;
         }else if (myStatus == 'Closed'){
-            //component.set("v.dateText", "Registration Closed" );
-            myText = "closedButton";
+            buttonClass = "closedButton";
+            buttonDisabled = true;
         }
-        component.set("v.buttonClass", "myButton " + myText);
+        component.set("v.buttonClass", "myButton " + buttonClass);
+        component.set("v.buttonDisabled", buttonDisabled)
     },
 
-    setButtonDisabled :function(component){
-        let openDate = component.get("v.openDate");
-        let closeDate = component.get("v.closeDate");
-        var todaysDate = new Date();
-        if (todaysDate < openDate){
-            component.set("v.buttonDisabled","TRUE");       
-        } else if (todaysDate <= closeDate){
-            component.set("v.buttonDisabled","FALSE");
-        } else {
-            component.set("v.buttonDisabled","TRUE");
-        }
-
-    },
     formatDate :function(component){
         let myDate = component.get("v.openDate")
-        console.log('myDate: '+myDate);
         var resultText;
 
         switch(myDate.getMonth()+1){
@@ -147,9 +136,7 @@
         }
 
         resultText = resultText + " " + myDate.getDate() + ", " + myDate.getFullYear();
-        console.log('result:' + resultText);
         component.set("v.dateFormat", resultText);
-        console.log('formatDate:' + component.get("v.dateFormat"));
     }
 })
 
