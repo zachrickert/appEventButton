@@ -39,7 +39,6 @@
         helper.formatDate(component);
         helper.setDateText(component);
         helper.setButtonClass(component);
-        helper.setButtonDisabled(component);
 
     },
 

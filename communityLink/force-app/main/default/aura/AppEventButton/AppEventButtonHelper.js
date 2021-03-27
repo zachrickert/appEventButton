@@ -75,34 +75,23 @@
     },
     setButtonClass : function(component) {
         let myStatus = component.get("v.buttonStatus");
-        var myText;
+        var buttonClass;
+        var buttonDisabled;
 
         if (myStatus == 'Open') {
-            myText = "openButton";
+            buttonClass = "openButton";
+            buttonDisabled = false;
         }else if (myStatus == 'Not Open'){
-            let formatText = component.get("v.dateFormat");
-            myText = "closedButton";
+            buttonClass = "closedButton";
+            buttonDisabled = true;
         }else if (myStatus == 'Closed'){
-            myText = "closedButton";
+            buttonClass = "closedButton";
+            buttonDisabled = true;
         }
-        component.set("v.buttonClass", "myButton " + myText);
+        component.set("v.buttonClass", "myButton " + buttonClass);
+        component.set("v.buttonDisabled", buttonDisabled)
     },
 
-    setButtonDisabled :function(component){
-        let openDate = component.get("v.openDate");
-        let closeDate = component.get("v.closeDate");
-        var todaysDate = new Date();
-        if(isNaN(closeDate)){
-            component.set("v.buttonDisabled","FALSE");
-        }else if (todaysDate < openDate){
-            component.set("v.buttonDisabled","TRUE");       
-        } else if (todaysDate <= closeDate){
-            component.set("v.buttonDisabled","FALSE");
-        } else {
-            component.set("v.buttonDisabled","TRUE");
-        }
-
-    },
     formatDate :function(component){
         let myDate = component.get("v.openDate")
         var resultText;
