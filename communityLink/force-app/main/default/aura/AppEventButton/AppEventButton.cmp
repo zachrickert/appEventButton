@@ -15,9 +15,14 @@
     <aura:attribute name="dateFormat" type="string" />
     <aura:attribute name="buttonClass" type="string" />
     <aura:attribute name="buttonDisabled" type="string" />
+    <aura:attribute name="intendedProgram" type="string" />
+    <aura:attribute name="renderDateText" type="boolean" default= "true"/>
 
-    <lightning:button variant="brand" onclick="{!c.goToLink}" class="{!v.buttonClass}" disabled="{!v.buttonDisabled}">
-        {!v.dateText}<br/>{!v.buttonTitle}
+    <lightning:button variant="brand" onclick="{!c.clickButton}" class="{!v.buttonClass}" disabled="{!v.buttonDisabled}">
+        <aura:if isTrue="{!v.renderDateText}">
+            {!v.dateText}<br/>
+        </aura:if>
+        {!v.buttonTitle}
     </lightning:button>
-    
+    <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}"  />
 </aura:component>	
