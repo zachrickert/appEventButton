@@ -52,10 +52,9 @@
 
             applicationID = outputVariables[0].value;
 
-            newLink = 'https://partialsb-uwfoster.cs16.force.com/UndergradMain/s/applicationlink?appId=' + applicationID;
+            //newLink = 'https://partialsb-uwfoster.cs16.force.com/UndergradMain/s/applicationlink?appId=' + applicationID;
+            newLink = '/applicationlink?appId=' + applicationID;
 
-            //component.set("v.link", newLink);
-            //this.goToLink(this.component, this.event, this.helper);
             var urlEvent = $A.get("e.force:navigateToURL");
 
             urlEvent.setParams({"url": newLink});
